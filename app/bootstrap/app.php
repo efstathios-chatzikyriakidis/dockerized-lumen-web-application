@@ -1,5 +1,7 @@
 <?php
 
+// Change here.
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 try {
@@ -23,9 +25,8 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
-
-// $app->withEloquent();
+$app->withFacades();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -98,3 +99,5 @@ $app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
 });
 
 return $app;
+
+?>
