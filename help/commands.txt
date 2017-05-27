@@ -1,3 +1,5 @@
+	composer install
+
 	mv app/.env.example app/.env
 
 	ln -s app/.env .env
