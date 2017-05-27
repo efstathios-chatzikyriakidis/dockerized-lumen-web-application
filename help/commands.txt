@@ -1,54 +1,90 @@
-	composer install
+Dependencies:
 
-	mv app/.env.example app/.env
+	sudo chown -R $USER $HOME/.composer
 
-	ln -s app/.env .env
+	/app
 
-Locally to create database:
+		composer install
+
+Environment:
+
+	/
+
+		ln -s app/.env .env
+
+Database:
 
 	mysql -u root -p
 
-	DROP DATABASE draxis;
+		DROP DATABASE draxis;
 
-	DROP USER 'draxis'@'localhost';
+		DROP USER 'draxis'@'localhost';
 
-	CREATE DATABASE draxis DEFAULT CHARACTER SET = 'utf8' DEFAULT COLLATE 'utf8_unicode_ci';
+		CREATE DATABASE draxis DEFAULT CHARACTER SET = 'utf8' DEFAULT COLLATE 'utf8_unicode_ci';
 
-	CREATE USER 'draxis'@'localhost' IDENTIFIED BY 'draxis';
+		CREATE USER 'draxis'@'localhost' IDENTIFIED BY 'draxis';
 
-	GRANT ALL PRIVILEGES ON draxis.* TO 'draxis'@'localhost' IDENTIFIED BY 'draxis';
+		GRANT ALL PRIVILEGES ON draxis.* TO 'draxis'@'localhost' IDENTIFIED BY 'draxis';
 
-	FLUSH PRIVILEGES;
+		FLUSH PRIVILEGES;
 
-	php artisan migrate:install
+	/app
 
-	php artisan migrate
+		php artisan migrate:install
 
-	composer dump-autoload
+		php artisan migrate
 
-	php artisan db:seed
+		composer dump-autoload
 
-	mysqldump --databases --add-drop-database -h localhost -u root -p draxis > schema.sql
+		php artisan db:seed
 
-Some permissions:
+	/mysql/scripts
 
-	sudo rm -rf mysql/data/*
+		mysqldump --databases --add-drop-database -h localhost -u root -p draxis > schema.sql
 
-	sudo find . -type d -exec chmod 755 {} \;
+	/mysql/data
 
-	sudo find . -type f -exec chmod 644 {} \;
+		find ! -name '.gitkeep' -delete
 
-	sudo chown -R www-data:www-data app
+Permissions:
 
-	sudo chgrp -R www-data app/storage
+	/
 
-	sudo chmod -R ug+rwx app/storage
+		sudo find . -type d -exec chmod 755 {} \;
 
-Other commands:
+		sudo find . -type f -exec chmod 644 {} \;
 
-	php -S localhost:8081 -t app/
+		sudo chown -R www-data:www-data app
 
-	localhost:8081/public/phpinfo.php
+		sudo chgrp -R www-data app/storage
+
+		sudo chmod -R ug+rwx app/storage
+
+PHP development server:
+
+	/
+
+		php -S localhost:8081 -t app
+
+	http://localhost:8081/public/phpinfo.php
+
+Groups:
+
+	sudo groupadd docker
+
+	sudo usermod -aG docker $USER
+
+Docker:
+
+	/
+
+		docker-compose up -d
+
+		docker-compose up
+
+		docker-compose down
+
+		docker-compose exec mysql sh
 
 	docker stop $(docker ps -a -q)
 
@@ -56,19 +92,7 @@ Other commands:
 
 	docker rmi $(docker images -a -q)
 
-	docker-compose up/down
-
 	docker ps
-
-	docker-compose exec mysql sh
-
-	sudo groupadd docker
-
-	sudo usermod -aG docker $USER
-
-	composer global require "laravel/lumen-installer=~1.0"  
-
-	php artisan make:migration --create=users create_users_table
 
 CURL:
 
