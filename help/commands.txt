@@ -1,95 +1,97 @@
 Dependencies:
 
-    sudo chown -R $USER $HOME/.composer
+	sudo chown -R $USER $HOME/.composer
 
-    /app
+	/app
 
-        composer install
+		composer install
 
 Environment:
 
-    /
+	/
 
-        ln -s app/.env .env
+		ln -sf app/.env .env
 
 Database:
 
-    mysql -u root -p
+	mysql -u root -p
 
-        DROP DATABASE draxis;
+		DROP DATABASE draxis;
 
-        DROP USER 'draxis'@'localhost';
+		DROP USER 'draxis'@'localhost';
 
-        CREATE DATABASE draxis DEFAULT CHARACTER SET = 'utf8' DEFAULT COLLATE 'utf8_unicode_ci';
+		CREATE DATABASE draxis DEFAULT CHARACTER SET = 'utf8' DEFAULT COLLATE 'utf8_unicode_ci';
 
-        CREATE USER 'draxis'@'localhost' IDENTIFIED BY 'draxis';
+		CREATE USER 'draxis'@'localhost' IDENTIFIED BY 'draxis';
 
-        GRANT ALL PRIVILEGES ON draxis.* TO 'draxis'@'localhost' IDENTIFIED BY 'draxis';
+		GRANT ALL PRIVILEGES ON draxis.* TO 'draxis'@'localhost' IDENTIFIED BY 'draxis';
 
-        FLUSH PRIVILEGES;
+		FLUSH PRIVILEGES;
 
-    /app
+	/app
 
-        php artisan migrate:install
+		php artisan migrate:install
 
-        php artisan migrate
+		php artisan migrate
 
-        composer dump-autoload
+		composer dump-autoload
 
-        php artisan db:seed
+		php artisan db:seed
 
-    /mysql/scripts
+	/mysql/scripts
 
-        mysqldump --databases --add-drop-database -h localhost -u root -p draxis > schema.sql
+		mysqldump --databases --add-drop-database -h localhost -u root -p draxis > schema.sql
 
-    /mysql/data
+	/mysql/data
 
-        find ! -name '.gitkeep' -delete
+		find ! -name '.gitkeep' -delete
 
 Permissions:
 
-    /
+	/
 
-        sudo find . -type d -exec chmod 755 {} \;
+		sudo find . -type d -exec chmod 755 {} \;
 
-        sudo find . -type f -exec chmod 644 {} \;
+		sudo find . -type f -exec chmod 644 {} \;
 
-        sudo chown -R $USER:www-data app
+		sudo chown -R $USER:www-data app
 
 PHP development server:
 
-    /
+	/
 
-        php -S localhost:8081 -t app
+		php -S localhost:8081 -t app
 
-    http://localhost:8081/public/phpinfo.php
+	http://localhost:8081/public/phpinfo.php
 
 Groups:
 
-    sudo groupadd docker
+	sudo groupadd docker
 
-    sudo usermod -aG docker $USER
+	sudo usermod -aG docker $USER
 
 Docker:
 
-    /
+	/
 
-        docker-compose up -d
+		docker-compose up -d
 
-        docker-compose up
+		docker-compose up
 
-        docker-compose down
+		docker-compose down
 
-        docker-compose exec mysql sh
+		docker-compose up --force-recreate -d
 
-    docker stop $(docker ps -a -q)
+		docker-compose exec mysql sh
 
-    docker rm $(docker ps -a -q)
+	docker stop $(docker ps -a -q)
 
-    docker ps
+	docker rm $(docker ps -a -q)
+
+	docker ps
 
 CURL:
 
-    curl -i -X POST -H "Content-Type:application/json" http://localhost:9394/api/v1/users -d '{"firstname":"John", "lastname":"Jonathan", "username":"jjonathan", "password":"nopasswords"}'
+	curl -i -X POST -H "Content-Type:application/json" http://localhost:9394/api/v1/users -d '{"firstname":"John", "lastname":"Jonathan", "username":"jjonathan", "password":"nopasswords"}'
 
-    curl http://localhost:9394/api/v1/users
+	curl http://localhost:9394/api/v1/users
