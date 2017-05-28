@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
 
-sudo chown -R $USER $HOME/.composer
+chown -R $USER $HOME/.composer
 
 composer install -d app
 
 ln -sf app/.env .env
 
-sudo find . -type d -exec chmod 755 {} \;
+find . -type d -exec chmod 755 {} \;
 
-sudo find . -type f -exec chmod 644 {} \;
+find . -type f -exec chmod 644 {} \;
 
-sudo chown -R $USER:www-data app
+sudo chgrp -R www-data app
+
+find app/storage -type d -exec chmod 775 {} \;
+
+find app/storage -type f -exec chmod 664 {} \;
 
 docker-compose up --force-recreate -d
