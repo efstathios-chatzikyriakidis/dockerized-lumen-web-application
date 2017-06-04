@@ -92,10 +92,6 @@ Docker:
 
 	docker rm $(docker ps -a -q)
 
+	docker rmi $(docker images -a -q)
+
 	docker ps
-
-CURL:
-
-	curl -i -X POST -H "Content-Type:application/json" http://localhost:9394/api/v1/users -d '{"firstname":"John", "lastname":"Jonathan", "username":"jjonathan", "password":"nopasswords"}'
-
-	curl http://localhost:9394/api/v1/users
