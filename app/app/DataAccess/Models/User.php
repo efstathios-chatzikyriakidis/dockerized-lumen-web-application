@@ -1,0 +1,30 @@
+<?php
+
+// Change here.
+
+namespace App\DataAccess\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    public $timestamps = false;
+
+    protected $fillable = [
+        'first_name',
+
+        'last_name',
+
+        'email',
+
+        'password'
+    ];
+
+    protected $hidden = [
+        'password',
+
+        'api_key'
+    ];
+}
+
+?>
