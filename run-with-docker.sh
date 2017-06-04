@@ -16,4 +16,6 @@ sudo find app/storage -type d -exec chmod 775 {} \;
 
 sudo find app/storage -type f -exec chmod 664 {} \;
 
+docker-compose build --no-cache --force-rm
+
 docker-compose up --force-recreate -d
