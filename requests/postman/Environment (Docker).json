@@ -7,6 +7,18 @@
       "key": "shared_url_part",
       "value": "http://localhost:9394",
       "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "authorization_token",
+      "value": "[place here a token]",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "authorization_type",
+      "value": "Custom",
+      "type": "text"
     }
   ],
   "timestamp": 1496591107030,
