@@ -1,18 +1,34 @@
-Dependencies:
+Run with docker (clean git clone first):
+
+	GNU/Linux:
+
+		run-with-docker.sh
+
+	Windows:
+
+		run-with-docker.bat
+
+
+
+Run with built-in web server (clean git clone first):
+
+	GNU/Linux:
+
+		run-with-built-in-server.sh
+
+
+
+Configuration (run once):
 
 	sudo chown -R $USER $HOME/.composer
 
-	/
+	sudo groupadd docker
 
-		composer install -d app
+	sudo usermod -aG docker $USER
 
-Environment:
 
-	/
 
-		ln -sf app/.env .env
-
-Database:
+Database creation:
 
 	mysql -u root -p
 
@@ -42,56 +58,32 @@ Database:
 
 		mysqldump --databases --add-drop-database -h localhost -u root -p draxis > schema.sql
 
+
+
+Clean database files:
+
 	/mysql/data
 
 		sudo find ! -name '.gitkeep' -delete
 
-Permissions:
 
-	/
 
-		sudo find -not -path "./mysql/data*" -type d -exec chmod 755 {} \;
+Docker commands:
 
-		sudo find -not -path "./mysql/data*" -type f -exec chmod 644 {} \;
+	docker-compose up -d
 
-		sudo chgrp -R www-data app
+	docker-compose up
 
-		sudo find app/storage -type d -exec chmod 775 {} \;
+	docker-compose down
 
-		sudo find app/storage -type f -exec chmod 664 {} \;
+	docker-compose up --force-recreate -d
 
-PHP development server:
+	docker ps
 
-	/
-
-		php -S localhost:8081 -t app
-
-	http://localhost:8081/public/phpinfo.php
-
-Groups:
-
-	sudo groupadd docker
-
-	sudo usermod -aG docker $USER
-
-Docker:
-
-	/
-
-		docker-compose up -d
-
-		docker-compose up
-
-		docker-compose down
-
-		docker-compose up --force-recreate -d
-
-		docker-compose exec mysql sh
+	docker-compose exec mysql sh
 
 	docker stop $(docker ps -a -q)
 
 	docker rm $(docker ps -a -q)
 
 	docker rmi $(docker images -a -q)
-
-	docker ps
