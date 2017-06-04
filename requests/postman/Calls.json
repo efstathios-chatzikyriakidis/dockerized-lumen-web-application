@@ -1,0 +1,283 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Lumen Web Application",
+		"_postman_id": "53fdfac1-fdb8-ba8a-42bc-a678222a34eb",
+		"description": "HTTP calls for Lumen Web Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"description": "",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"url": "{{shared_url_part}}/api/v1/authentication",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "contact@efxa.org",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "nopasswords",
+									"description": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "General",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Lumen Version",
+					"request": {
+						"url": "{{shared_url_part}}/",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sensor Types",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Sensor Types",
+					"request": {
+						"url": "{{shared_url_part}}/api/v1/sensorTypes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization_type}} {{authorization_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sensors",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Sensors",
+					"request": {
+						"url": "{{shared_url_part}}/api/v1/sensors",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization_type}} {{authorization_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sensor",
+					"request": {
+						"url": "{{shared_url_part}}/api/v1/sensors/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization_type}} {{authorization_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sensor",
+					"request": {
+						"url": "{{shared_url_part}}/api/v1/sensors",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization_type}} {{authorization_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "label",
+									"value": "Sensor B246",
+									"description": ""
+								},
+								{
+									"key": "pointLongitude",
+									"value": "38.1285572",
+									"description": ""
+								},
+								{
+									"key": "pointLatitude",
+									"value": "48.1285572",
+									"description": ""
+								},
+								{
+									"key": "sensorTypeId",
+									"value": "2",
+									"description": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sensor",
+					"request": {
+						"url": "{{shared_url_part}}/api/v1/sensors/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization_type}} {{authorization_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "label",
+									"value": "Sensor A246",
+									"description": ""
+								},
+								{
+									"key": "pointLongitude",
+									"value": "14.4812999",
+									"description": ""
+								},
+								{
+									"key": "pointLatitude",
+									"value": "28.1285572",
+									"description": ""
+								},
+								{
+									"key": "sensorTypeId",
+									"value": "1",
+									"description": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"url": "{{shared_url_part}}/api/v1/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization_type}} {{authorization_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"url": "{{shared_url_part}}/api/v1/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization_type}} {{authorization_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "Efstathios",
+									"description": ""
+								},
+								{
+									"key": "lastName",
+									"value": "Chatzikyriakidis",
+									"description": ""
+								},
+								{
+									"key": "email",
+									"value": "contact@efxa.org",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "nopasswords",
+									"description": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

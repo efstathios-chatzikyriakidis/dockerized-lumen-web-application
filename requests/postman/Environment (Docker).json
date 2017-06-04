@@ -1,0 +1,16 @@
+{
+  "id": "781753c3-3232-9250-6d6e-b3191c22cf80",
+  "name": "Lumen Web Application (Docker)",
+  "values": [
+    {
+      "enabled": true,
+      "key": "shared_url_part",
+      "value": "http://localhost:9394",
+      "type": "text"
+    }
+  ],
+  "timestamp": 1496591107030,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2017-06-04T15:45:44.980Z",
+  "_postman_exported_using": "Postman/4.11.0"
+}

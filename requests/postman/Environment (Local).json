@@ -1,0 +1,16 @@
+{
+  "id": "5b5761f6-a0d1-a77e-ab33-81adf566e411",
+  "name": "Lumen Web Application (Local)",
+  "values": [
+    {
+      "enabled": true,
+      "key": "shared_url_part",
+      "value": "http://localhost:8081/public",
+      "type": "text"
+    }
+  ],
+  "timestamp": 1496591113734,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2017-06-04T15:45:51.484Z",
+  "_postman_exported_using": "Postman/4.11.0"
+}
