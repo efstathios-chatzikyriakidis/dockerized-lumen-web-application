@@ -16,6 +16,10 @@ Run with built-in web server (clean git clone first):
 
 		run-with-built-in-server.sh
 
+	Windows:
+
+		run-with-built-in-server.bat
+
 
 
 Configuration (run once):
