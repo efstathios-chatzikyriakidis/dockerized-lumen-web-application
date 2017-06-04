@@ -128,7 +128,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Efstathios','Chatzikyriakidis','contact@efxa.org','$2y$10$tCPvNjIHtG83Zrdieo2tT.vwGlCkaTzoW.qGe8Z/GFZgJ32yELf4G',NULL),(2,'Vagelis','Mitropoulos','vagelis@mitropoulos.com','$2y$10$GdJhnnJY1iET8UbSpy9N9uTec38.axrCctFJj6zqd9crLSURmZYfa',NULL);
+INSERT INTO `users` VALUES (1,'Efstathios','Chatzikyriakidis','contact@efxa.org','$2y$10$85olcF1bJFg6U3DfsVdgZeN4lRgo1N4mv4t1rO2R1zenR66af.x5y',NULL),(2,'Vagelis','Mitropoulos','vagelis@mitropoulos.com','$2y$10$d9D7JrPNykaNX..hSpxq/OvjiIQmJN7G7vJkP/Eg/.l82fO08mRD2',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -141,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-04 13:55:30
+-- Dump completed on 2017-06-04 19:12:21
