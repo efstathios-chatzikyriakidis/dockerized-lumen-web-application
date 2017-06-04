@@ -70,20 +70,22 @@ Clean database files:
 
 Docker commands:
 
-	docker-compose up -d
+	docker-compose build
 
 	docker-compose up
 
 	docker-compose down
 
-	docker-compose up --force-recreate -d
+	docker-compose up -d
 
-	docker ps
+	docker-compose up -d --force-recreate
 
 	docker-compose exec mysql sh
 
+	docker ps
+
 	docker stop $(docker ps -a -q)
 
-	docker rm $(docker ps -a -q)
+	docker rm -f $(docker ps -a -q)
 
-	docker rmi $(docker images -a -q)
+	docker rmi -f $(docker images -a -q)
