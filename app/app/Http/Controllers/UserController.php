@@ -4,21 +4,30 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Response;
+
 use Illuminate\Http\Request;
-use App\Models\User;
+
+use App\Services\Contracts\IUserService;
+
+use Auth;
 
 class UserController extends Controller
 {
-    public function index() {
-        $users  = User::all();
+    private $userService;
 
-        return response()->json($users);
+    public function __construct(IUserService $userService) {
+        $this->middleware('auth');
+
+        $this->userService = $userService;
     }
 
-    public function createUser(Request $request) {
-        $user = User::create($request->all());
+    public function index() {
+        return $this->json_response($this->userService->getAll(), Response::HTTP_OK);
+    }
 
-        return response()->json($user);
+    public function create(Request $request) {
+        return $this->json_response($this->userService->create($request->all()), Response::HTTP_CREATED);
     }
 }
 
