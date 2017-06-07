@@ -4,11 +4,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Transformers\Infrastructure\ITransformerService;
+
+use App\Transformers\Contracts\ISensorTransformer;
+
+use App\Services\Contracts\ISensorService;
+
+use App\Constants;
+
 use Illuminate\Http\Response;
 
 use Illuminate\Http\Request;
-
-use App\Services\Contracts\ISensorService;
 
 use Auth;
 
@@ -16,22 +22,30 @@ class SensorController extends Controller
 {
     private $sensorService;
 
-    public function __construct(ISensorService $sensorService) {
+    private $sensorTransformer;
+
+    private $transformerService;
+
+    public function __construct(ITransformerService $transformerService, ISensorService $sensorService, ISensorTransformer $sensorTransformer) {
         $this->middleware('auth');
+
+        $this->sensorTransformer = $sensorTransformer;
+
+        $this->transformerService = $transformerService;
 
         $this->sensorService = $sensorService;
     }
 
-    public function index() {
-        return $this->json_response($this->sensorService->getAll(), Response::HTTP_OK);
+    public function index(Request $request) {
+        return $this->json_response($this->transformerService->collection($this->sensorService->getAll(), $this->sensorTransformer, $request->input(Constants::REQUEST_INCLUDE_PARAMETER_KEY)), Response::HTTP_OK);
     }
 
     public function create(Request $request) {
-        return $this->json_response($this->sensorService->create($request->all()), Response::HTTP_CREATED);
+        return $this->json_response($this->transformerService->item($this->sensorService->create($request->all()), $this->sensorTransformer, $request->input(Constants::REQUEST_INCLUDE_PARAMETER_KEY)), Response::HTTP_CREATED);
     }
 
     public function update(Request $request, $id) {
-        return $this->json_response($this->sensorService->updateById($id, $request->all()), Response::HTTP_OK);
+        return $this->json_response($this->transformerService->item($this->sensorService->updateById($id, $request->all()), $this->sensorTransformer, $request->input(Constants::REQUEST_INCLUDE_PARAMETER_KEY)), Response::HTTP_OK);
     }
 
     public function delete($id) {

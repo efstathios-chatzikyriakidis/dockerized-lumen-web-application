@@ -32,7 +32,20 @@ use App\Services\SensorTypeService;
 use App\Services\SensorService;
 use App\Services\UserService;
 
+use App\Transformers\Infrastructure\ITransformerService;
+use App\Transformers\Infrastructure\FractalTransformerService;
+
+use App\Transformers\Contracts\ISensorTypeTransformer;
+use App\Transformers\Contracts\ISensorTransformer;
+use App\Transformers\Contracts\IUserTransformer;
+
+use App\Transformers\SensorTypeTransformer;
+use App\Transformers\SensorTransformer;
+use App\Transformers\UserTransformer;
+
+use League\Fractal\Serializer\ArraySerializer;
 use Illuminate\Support\ServiceProvider;
+use League\Fractal\Manager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -64,6 +77,22 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ISensorUpdateRequestValidation::class, SensorUpdateRequestValidation::class);
 
         $this->app->bind(IAuthenticationLoginRequestValidation::class, AuthenticationLoginRequestValidation::class);
+
+        $this->app->bind(ITransformerService::class, FractalTransformerService::class);
+
+        $this->app->bind(ISensorTypeTransformer::class, SensorTypeTransformer::class);
+
+        $this->app->bind(IUserTransformer::class, UserTransformer::class);
+
+        $this->app->bind(ISensorTransformer::class, SensorTransformer::class);
+
+        $this->app->bind(Manager::class, function () {
+            $manager = new Manager();
+
+            $manager->setSerializer(new ArraySerializer());
+
+            return $manager;
+        });
     }
 }
 

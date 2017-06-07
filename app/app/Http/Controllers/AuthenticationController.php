@@ -19,7 +19,7 @@ class AuthenticationController extends Controller
     }
 
     public function login(Request $request) {
-        return $this->json_response($this->authenticationService->login($request->all()), Response::HTTP_OK);
+        return $this->data_json_response($this->authenticationService->login($request->all()), Response::HTTP_OK);
     }
 }
 
