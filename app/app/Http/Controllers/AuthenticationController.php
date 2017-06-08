@@ -4,6 +4,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DTOs\AuthenticationLoginResultDto;
+
 use Illuminate\Http\Response;
 
 use Illuminate\Http\Request;
@@ -19,7 +21,7 @@ class AuthenticationController extends Controller
     }
 
     public function login(Request $request) {
-        return $this->data_json_response($this->authenticationService->login($request->all()), Response::HTTP_OK);
+        return $this->json_response(new AuthenticationLoginResultDto($this->authenticationService->login($request->all())), Response::HTTP_OK);
     }
 }
 
