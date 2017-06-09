@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Lumen Web Application",
-		"_postman_id": "53fdfac1-fdb8-ba8a-42bc-a678222a34eb",
+		"_postman_id": "cf43e07b-5260-70d1-c2e8-d823aee9ca81",
 		"description": "HTTP calls for Lumen Web Application",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -16,21 +16,16 @@
 					"request": {
 						"url": "{{shared_url_part}}/api/v1/authentication",
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "email",
-									"value": "contact@efxa.org",
-									"description": ""
-								},
-								{
-									"key": "password",
-									"value": "nopasswords",
-									"description": ""
-								}
-							]
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\" : \"contact@efxa.org\",\r\n\r\n\t\"password\" : \"nopasswords\"\r\n}"
 						},
 						"description": ""
 					},
@@ -138,32 +133,16 @@
 								"key": "Authorization",
 								"value": "{{authorization_type}} {{authorization_token}}",
 								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "label",
-									"value": "Sensor B246",
-									"description": ""
-								},
-								{
-									"key": "pointLongitude",
-									"value": "38.1285572",
-									"description": ""
-								},
-								{
-									"key": "pointLatitude",
-									"value": "48.1285572",
-									"description": ""
-								},
-								{
-									"key": "sensorTypeId",
-									"value": "2",
-									"description": ""
-								}
-							]
+							"mode": "raw",
+							"raw": "{\r\n\t\"label\" : \"Sensor B246\",\r\n\t\r\n\t\"pointLongitude\" : \"38.1285572\",\r\n\t\r\n\t\"pointLatitude\" : \"48.1285572\",\r\n\t\r\n\t\"sensorType\": {\r\n\t\t\"id\" : 2\r\n\t}\r\n}"
 						},
 						"description": ""
 					},
@@ -179,32 +158,16 @@
 								"key": "Authorization",
 								"value": "{{authorization_type}} {{authorization_token}}",
 								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "label",
-									"value": "Sensor A246",
-									"description": ""
-								},
-								{
-									"key": "pointLongitude",
-									"value": "14.4812999",
-									"description": ""
-								},
-								{
-									"key": "pointLatitude",
-									"value": "28.1285572",
-									"description": ""
-								},
-								{
-									"key": "sensorTypeId",
-									"value": "1",
-									"description": ""
-								}
-							]
+							"mode": "raw",
+							"raw": "{\r\n\t\"label\" : \"Sensor A246\",\r\n\r\n\t\"pointLongitude\" : \"14.4812999\",\r\n\r\n\t\"pointLatitude\" : \"14.4812999\",\r\n\r\n\t\"sensorType\": {\r\n\t\t\"id\" : 1\r\n\t}\r\n}"
 						},
 						"description": ""
 					},
@@ -246,32 +209,16 @@
 								"key": "Authorization",
 								"value": "{{authorization_type}} {{authorization_token}}",
 								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "firstName",
-									"value": "Efstathios",
-									"description": ""
-								},
-								{
-									"key": "lastName",
-									"value": "Chatzikyriakidis",
-									"description": ""
-								},
-								{
-									"key": "email",
-									"value": "contact@efxa.org",
-									"description": ""
-								},
-								{
-									"key": "password",
-									"value": "nopasswords",
-									"description": ""
-								}
-							]
+							"mode": "raw",
+							"raw": "{\r\n\t\"firstName\" : \"Efstathios\",\r\n\r\n\t\"lastName\" : \"Chatzikyriakidis\",\r\n\r\n\t\"email\" : \"contact@efxa.org\",\r\n\r\n\t\"password\" : \"nopasswords\"\r\n}"
 						},
 						"description": ""
 					},

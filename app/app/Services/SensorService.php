@@ -48,7 +48,7 @@ class SensorService implements ISensorService
     {
         $this->sensorCreateRequestValidation->validate($data);
 
-        $this->sensorTypeService->shouldGetById($data['sensorTypeId']);
+        $this->sensorTypeService->shouldGetById($data['sensorType']['id']);
 
         $input = [
             'label' => $data['label'],
@@ -57,7 +57,7 @@ class SensorService implements ISensorService
 
             'point_longitude' => $data['pointLongitude'],
 
-            'sensor_type_id' => $data['sensorTypeId']
+            'sensor_type_id' => $data['sensorType']['id']
         ];
 
         return $this->sensorRepository->create($input);
@@ -67,7 +67,7 @@ class SensorService implements ISensorService
     {
         $this->sensorUpdateRequestValidation->validate($data);
 
-        $this->sensorTypeService->shouldGetById($data['sensorTypeId']);
+        $this->sensorTypeService->shouldGetById($data['sensorType']['id']);
 
         $model = $this->shouldGetById($id);
 
@@ -78,7 +78,7 @@ class SensorService implements ISensorService
 
             'point_longitude' => $data['pointLongitude'],
 
-            'sensor_type_id' => $data['sensorTypeId']
+            'sensor_type_id' => $data['sensorType']['id']
         ];
 
         $this->sensorRepository->updateByModel($model, $input);

@@ -17,7 +17,7 @@ class SensorCreateRequestValidation extends RequestValidation implements ISensor
 
             'pointLongitude' => 'required|numeric|between:-180,+180',
 
-            'sensorTypeId' => 'required|integer'
+            'sensorType.id' => 'required|integer'
         ];
     }
 }
