@@ -12,7 +12,10 @@ $app->group(['prefix' => 'api/v1'], function () use ($app)
     // Authentication
 
     $app->post('authentication', 'AuthenticationController@login');
+});
 
+$app->group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () use ($app)
+{
     // Users
 
     $app->get('users', 'UserController@index');

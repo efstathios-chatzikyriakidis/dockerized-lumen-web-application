@@ -16,8 +16,6 @@ use Illuminate\Http\Response;
 
 use Illuminate\Http\Request;
 
-use Auth;
-
 class SensorController extends Controller
 {
     private $sensorService;
@@ -27,8 +25,6 @@ class SensorController extends Controller
     private $transformerService;
 
     public function __construct(ITransformerService $transformerService, ISensorService $sensorService, ISensorTransformer $sensorTransformer) {
-        $this->middleware('auth');
-
         $this->sensorTransformer = $sensorTransformer;
 
         $this->transformerService = $transformerService;

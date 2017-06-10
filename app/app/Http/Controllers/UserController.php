@@ -16,8 +16,6 @@ use Illuminate\Http\Response;
 
 use Illuminate\Http\Request;
 
-use Auth;
-
 class UserController extends Controller
 {
     private $userService;
@@ -27,8 +25,6 @@ class UserController extends Controller
     private $transformerService;
 
     public function __construct(ITransformerService $transformerService, IUserService $userService, IUserTransformer $userTransformer) {
-        $this->middleware('auth');
-
         $this->transformerService = $transformerService;
 
         $this->userTransformer = $userTransformer;
