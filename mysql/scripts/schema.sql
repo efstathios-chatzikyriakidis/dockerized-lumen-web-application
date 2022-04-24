@@ -128,7 +128,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Efstathios','Chatzikyriakidis','contact@efxa.org','$2y$10$85olcF1bJFg6U3DfsVdgZeN4lRgo1N4mv4t1rO2R1zenR66af.x5y',NULL),(2,'Vagelis','Mitropoulos','vagelis@mitropoulos.com','$2y$10$d9D7JrPNykaNX..hSpxq/OvjiIQmJN7G7vJkP/Eg/.l82fO08mRD2',NULL);
+INSERT INTO `users` VALUES (1,'Efstathios','Chatzikyriakidis','stathis.chatzikyriakidis@gmail.com','$2y$10$85olcF1bJFg6U3DfsVdgZeN4lRgo1N4mv4t1rO2R1zenR66af.x5y',NULL),(2,'Vagelis','Mitropoulos','vagelis@mitropoulos.com','$2y$10$d9D7JrPNykaNX..hSpxq/OvjiIQmJN7G7vJkP/Eg/.l82fO08mRD2',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -25,7 +25,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"email\" : \"contact@efxa.org\",\r\n\r\n\t\"password\" : \"nopasswords\"\r\n}"
+							"raw": "{\r\n\t\"email\" : \"stathis.chatzikyriakidis@gmail.com\",\r\n\r\n\t\"password\" : \"nopasswords\"\r\n}"
 						},
 						"description": ""
 					},
@@ -218,7 +218,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"firstName\" : \"Efstathios\",\r\n\r\n\t\"lastName\" : \"Chatzikyriakidis\",\r\n\r\n\t\"email\" : \"contact@efxa.org\",\r\n\r\n\t\"password\" : \"nopasswords\"\r\n}"
+							"raw": "{\r\n\t\"firstName\" : \"Efstathios\",\r\n\r\n\t\"lastName\" : \"Chatzikyriakidis\",\r\n\r\n\t\"email\" : \"stathis.chatzikyriakidis@gmail.com\",\r\n\r\n\t\"password\" : \"nopasswords\"\r\n}"
 						},
 						"description": ""
 					},

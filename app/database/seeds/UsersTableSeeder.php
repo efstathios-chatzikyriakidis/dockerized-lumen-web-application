@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
 
             'last_name' => 'Chatzikyriakidis',
 
-            'email' => 'contact@efxa.org',
+            'email' => 'stathis.chatzikyriakidis@gmail.com',
 
             'password' => Hash::make('nopasswords')
         ]);
